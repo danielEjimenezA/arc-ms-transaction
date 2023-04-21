@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "42051641-fe01-4daa-85a3-bc46164b2370",
+		"name": "arc-ms-transaction",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "transac",
+			"item": [
+				{
+					"name": "report_transac",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movimientos/report{{personId}}/{{fechaInicio}}/{{fechaFin}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movimientos",
+								"report{{personId}}",
+								"{{fechaInicio}}",
+								"{{fechaFin}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_transac",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"accountDto\": {\r\n    \"id\": 789834,\r\n    \"clientDto\": {\r\n      \"id\": 347892,\r\n      \"password\": \"1234\",\r\n      \"status\": true,\r\n      \"personDto\": {\r\n        \"id\": \"1725374134\",\r\n        \"name\": \"Jose Lema\",\r\n        \"gender\": \"Masculino\",\r\n        \"age\": 25,\r\n        \"address\": \"Otavalo sn y principal\",\r\n        \"phone\": \"098254785\"\r\n      }\r\n    },\r\n    \"accountNumber\": 478758,\r\n    \"accountType\": \"Ahorros\",\r\n    \"initialAmount\": 2000.0,\r\n    \"status\": true\r\n  },\r\n  \"date\": \"2023-04-21\",\r\n  \"transactionType\": \"Débito\",\r\n  \"value\": 575,\r\n  \"balance\": 2000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "get_client_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/clients/{{clientId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"clients",
+								"{{clientId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "create_account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"clientDto\": {\r\n    \"id\": 347892,\r\n    \"password\": \"1234\",\r\n    \"status\": true,\r\n    \"personDto\": {\r\n      \"id\": \"1725374134\",\r\n      \"name\": \"Jose Lema\",\r\n      \"gender\": \"Masculino\",\r\n      \"age\": 25,\r\n      \"address\": \"Otavalo sn y principal\",\r\n      \"phone\": \"098254785\"\r\n    }\r\n  },\r\n  \"accountNumber\": 585545,\r\n  \"accountType\": \"Corriente\",\r\n  \"initialAmount\": 1000,\r\n  \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_account_by_number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cuentas/{{accountNumber}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cuentas",
+								"{{accountNumber}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
