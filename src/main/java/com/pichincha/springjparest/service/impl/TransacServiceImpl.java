@@ -54,11 +54,9 @@ public class TransacServiceImpl implements TransacService
     @Transactional
     public TransacDto create(TransacDto transacDto) throws NoSuchAlgorithmException
     {
-        Account account = accountRepository
-                .findById(transacDto
-                                  .getAccountDto()
-                                  .getAccountNumber())
-                .orElse(new Account());
+        Account account = accountRepository.findByAccountNumber(transacDto
+                                                                        .getAccountDto()
+                                                                        .getAccountNumber());
         switch (transacDto.getTransactionType())
         {
             case "Depósito":
